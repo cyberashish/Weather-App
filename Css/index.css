@@ -1,0 +1,550 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* HeroSection Starts */
+
+/* Header starts */
+.heroSection {
+  width: 100%;
+  background-image: url("/Assets/weather-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+.heroSectionCover {
+  position: relative;
+  z-index: 2;
+}
+.heroSection::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  /* backdrop-filter: blur(1px); */
+}
+.heroSection header {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 4rem 0;
+}
+.heroSection header .navbar-brand {
+  font-size: 3.5rem;
+  font-weight: 400;
+  font-weight: 500;
+  color: #fff;
+}
+.heroSection header .locationDetail {
+  display: flex;
+  gap: 5rem;
+}
+.heroSection header .locationDetail .location h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #fff;
+}
+.heroSection header .locationDetail .location h1 i {
+  color: #fff;
+  font-size: 3rem;
+}
+.heroSection header .locationDetail .location p {
+  font-size: 1.6rem;
+  color: #e0e0e0;
+  display: flex;
+  gap: 1rem;
+}
+.heroSection header .locationDetail .temperature {
+  padding: 0.6rem 2rem;
+  border: 0.2rem solid rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  align-self: center;
+  color: #fff;
+  font-size: 2rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+.heroSection header .locationDetail .temperature .dropdown-menu{
+    position: absolute;
+    width: 100%;
+    top: 5.5rem;
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    z-index: 2;
+}
+
+.heroSection header .locationDetail .temperature .dropdown-menu.active{
+ opacity: 1;
+ grid-template-rows: 1fr;
+}
+.heroSection header .locationDetail .temperature .dropdown-menu ul{
+    list-style-type: none;
+    border: 0.2rem solid #fff;
+    border-radius: 0.6rem;
+    overflow: hidden;
+}
+.heroSection header .locationDetail .temperature .dropdown-menu ul li{
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #fff;
+    padding: 0.3rem 1rem;
+    cursor: pointer;
+}
+.heroSection header .locationDetail .temperature .dropdown-menu ul li:hover{
+    background-color: gray;
+}
+.heroSection header .locationDetail .temperature i{
+    font-size: 2rem;
+    transition: all 0.2s ease;
+}
+.heroSection header .locationDetail .temperature i.change-icon{
+    transform: rotate(180deg);
+}
+/* Header starts */
+
+/* Container Starts */
+.heroSection .container {
+  max-width: 1150px;
+  margin: 0rem auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 12rem 0;
+  padding-bottom: 16rem;
+}
+.heroSection .container .leftBlock {
+  align-self: center;
+  display: flex;
+  gap: 1.5rem;
+  order: 2;
+}
+.heroSection .container .leftBlock .inputBox {
+  padding: 0.5rem;
+  background-color: rgb(255, 255, 255);
+  backdrop-filter: blur(3px);
+  display: flex;
+  gap: 0.2rem;
+  border-radius: 0.6rem;
+}
+.heroSection .container .leftBlock .inputBox input {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.8rem;
+  font-family: "Poppins", sans-serif;
+  caret-color: #353535;
+  width: 30rem;
+  padding-left: 0.5rem;
+}
+
+.heroSection .container .leftBlock .inputBox input::placeholder {
+  color: #222222;
+  font-weight: 400;
+}
+.heroSection .container .leftBlock .inputBox i {
+  font-size: 1.7rem;
+  color: #000000;
+  margin-left: 0.5rem;
+  cursor: pointer;
+
+}
+.heroSection .container .leftBlock .inputBox #search{
+  align-self: center;
+  font-size: 1.5rem;
+  color: #202020;
+  border-radius: 0.8rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-weight: 400;
+  background: #def4ff;
+  padding: 0.5rem 0.6rem;
+  border: 0.1rem solid #000000;
+}
+.heroSection .container .leftBlock .inputBox #search:hover{
+  background-color: #bae6fc;
+}
+.heroSection .container .leftBlock figure {
+  width: 2.2rem;
+  align-self: center;
+  cursor: pointer;
+}
+.heroSection .container .leftBlock figure img {
+  width: 100%;
+  filter: invert(100%) sepia(4%) saturate(6839%) hue-rotate(4deg)
+    brightness(123%) contrast(101%);
+}
+
+.heroSection .container .rightBlock {
+  order: 3;
+}
+
+.heroSection .container .rightBlock .topBlock {
+  display: flex;
+  gap: 2rem;
+}
+.heroSection .container .rightBlock .topBlock figure {
+  display: flex;
+  max-width: 17rem;
+  position: relative;
+  top: -4rem;
+  left: -1rem;
+}
+.heroSection .container .rightBlock .topBlock figure img {
+  width: 100%;
+}
+.heroSection .container .rightBlock .topBlock i {
+  font-size: 10rem;
+  color: white;
+  align-self: center;
+}
+.heroSection .container .rightBlock .topBlock h1 {
+  font-size: 8rem;
+  font-weight: 500;
+  color: #fff;
+  align-self: center;
+}
+.heroSection .container .rightBlock .topBlock .wrapper{
+  display: flex;
+}
+.heroSection .container .rightBlock .bottomBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 7rem;
+  position: relative;
+  top: -3rem;
+}
+.heroSection .container .rightBlock .bottomBlock .weather {
+  display: flex;
+  gap: 0rem;
+}
+.heroSection .container .rightBlock .bottomBlock .weather figure {
+  display: flex;
+  width: 5rem;
+}
+.heroSection .container .rightBlock .bottomBlock .weather figure img {
+  width: 100%;
+}
+.heroSection .container .rightBlock .bottomBlock .weather h2 {
+  font-size: 3.4rem;
+  font-weight: 400;
+  color: #fff;
+  align-self: center;
+}
+.heroSection .container .rightBlock .bottomBlock p {
+  font-size: 1.9rem;
+  font-weight: 400;
+  color: #dbdbdb;
+  display: flex;
+  gap: 1rem;
+}
+.heroSection .container .rightBlock .bottomBlock p span {
+  font-weight: 500;
+  color: #fff;
+}
+.heroSection .container .rightBlock .bottomBlock .weatherDetails {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.heroSection .container .location{
+  display: none;
+}
+.heroSection .container .location h1 {
+  font-size: 3.5rem;
+  font-weight: 500;
+  color: #fff;
+}
+.heroSection .container .location h1 i {
+  color: #fff;
+  font-size: 4rem;
+}
+.heroSection .container .location p {
+  font-size: 1.7rem;
+  color: #e0e0e0;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+/* Container Ends */
+
+/* Handle Alert */
+
+/* Warning */
+.warning-alert{
+    position: absolute;
+    top: 10rem;
+    left: 5rem;
+    background-color: #ffdb9b;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    width: 0;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+.warning-alert.removedW{
+  width: 26rem;
+  opacity: 1;
+  
+}
+
+.warning-alert .left{
+    padding: 2.5rem 0.4rem;
+    background-color: #ffa200;
+    align-self: stretch;
+}
+.warning-alert p{
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #ce8301;
+    gap: 0.7rem;
+
+}
+.warning-alert p i{
+    font-size: 1.8rem;
+}
+.warning-alert .right{
+    padding: 0 1rem;
+    background-color: #f9c977;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.warning-alert .right i{
+    font-size: 2rem;
+    color: #ce8301;
+}
+
+/* Danger */
+.danger-alert{
+  position: absolute;
+  top: 10rem;
+  left: 5rem;
+  background-color: #ff9b9b;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+  width: 20rem;
+}
+#errorLocation{
+  width: 30rem;
+}
+.danger-alert.removedD{
+opacity: 1;
+
+}
+
+.danger-alert .left{
+  padding: 2.5rem 0.4rem;
+  background-color: #ff1900;
+  align-self: stretch;
+}
+.danger-alert p{
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #ce0101;
+  gap: 0.7rem;
+
+}
+.danger-alert p i{
+  font-size: 1.8rem;
+}
+.danger-alert .right{
+  padding: 0 1rem;
+  background-color: #f97777;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.danger-alert .right i{
+  font-size: 2rem;
+  color: #ce0101;
+}
+/*  */
+
+/* HeroSection Ends */
+
+/* Media Query Starts */
+@media only screen and (max-width:1220px){
+  .heroSection .container{
+    max-width: 950px;
+  }
+  .heroSection .container .leftBlock .inputBox input{
+    width: 25rem;
+  }
+  .heroSection .container .rightBlock{
+    width: 48%;
+  }
+}
+@media only screen and (max-width:998px){
+  .heroSection .container{
+    max-width: 750px;
+    padding-top: 5rem;
+  }
+  .heroSection .container{
+    flex-wrap: wrap;
+  }
+  .heroSection .container .leftBlock{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .heroSection .container .rightBlock{
+    width: 100%;
+    display: flex;
+  flex-direction: column;
+  margin-top: 10rem;
+  }
+  .heroSection .container .leftBlock .inputBox input{
+    width: 35rem;
+  }
+  .heroSection .container .rightBlock .topBlock{
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+  }
+  .heroSection .container .rightBlock .bottomBlock{
+    padding: 0rem;
+    right: 11rem;
+  }
+  .heroSection .container .rightBlock .bottomBlock .weather h2{
+    font-size: 2.5rem;
+  }
+  .heroSection .container .rightBlock .topBlock i{
+    position: relative;
+  right: 1rem;
+  }
+  .heroSection .container .rightBlock .topBlock figure{
+    top: -6rem;
+  }
+  .heroSection header .locationDetail .location{
+       display: none;
+       
+  }
+
+  .heroSection .container .location{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    order: 1;
+    margin-bottom: 4rem;
+  }
+
+}
+
+@media only screen and (max-width:582px){
+  .heroSection .container{
+    max-width: 95%;
+    padding-top: 2rem;
+  }
+  .heroSection .container .leftBlock .inputBox{
+    width: 80%;
+  justify-content: space-between;
+  }
+  .heroSection .container .leftBlock .inputBox input{
+    width: 60%;
+  }
+  .heroSection header .locationDetail .temperature{
+    padding: 0.3rem 1rem;
+  }
+  .heroSection .container .rightBlock .topBlock h1{
+    font-size: 7rem;
+  }
+  .heroSection .container .rightBlock .topBlock i{
+    font-size: 9.5rem;
+  }
+  .heroSection .container .rightBlock .topBlock{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .heroSection .container .rightBlock .topBlock .wrapper{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    justify-content: center;
+    position: relative;
+    top: -7rem;
+
+  }
+  .heroSection .container .rightBlock .bottomBlock{
+    top: -8rem;
+  right: 5rem;
+  }
+
+}
+
+@media only screen and (max-width:466px){
+  .heroSection .container .leftBlock .inputBox #search{
+    font-size: 1.4rem;
+    padding: 0.45rem 0.6rem;
+  }
+  .heroSection .container .leftBlock .inputBox i{
+    font-size: 1.4rem;
+  }
+  .heroSection .container .rightBlock .bottomBlock .weatherDetails{
+    margin-top: 0.5rem;
+  }
+  .heroSection .container .rightBlock .bottomBlock .weather h2{
+    font-size: 2.2rem;
+  }
+  .heroSection .container .rightBlock .bottomBlock p{
+    font-size: 1.7rem;
+  }
+}
+@media only screen and (max-width:430px){
+  .heroSection .container .leftBlock .inputBox input{
+    width: 50%;
+    padding-left: 0rem;
+    font-size: 1.4rem;
+  }
+  .heroSection .container .leftBlock .inputBox{
+    width: 80%;
+  justify-content: space-between;
+  }
+  .heroSection .container .rightBlock .bottomBlock{
+    right: 0;
+    justify-content: center;
+    align-items: center;
+  }
+  .heroSection .container .rightBlock .bottomBlock .weather h2{
+    font-size: 2rem;
+  }
+
+}
+@media only screen and (max-width:348px){
+  .heroSection .container .leftBlock .inputBox input{
+    width: 45%;
+  }
+}
+/* Media Query Ends */
